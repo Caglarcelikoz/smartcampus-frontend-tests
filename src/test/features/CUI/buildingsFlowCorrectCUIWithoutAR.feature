@@ -10,7 +10,7 @@ Feature: The CUI returns the correct building
     Then I Verify That There Is A Companies Button In The CUI
     Then I Verify That There Is A Employees Button In The CUI
     When I Click On The Buildings Button In The CUI
-    Then I Verify That There The CUI Shows A Message With The Text:buildings
+    Then I Verify That There The CUI Shows A Message With The Text buildings
     Then I Verify That The CUI Asks Which Building The User Is Looking For
     When I give in BuildingName <buildingName> On The InputField
     And I Click On The Send Button
