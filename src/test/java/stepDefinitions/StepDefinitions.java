@@ -228,8 +228,8 @@ public class StepDefinitions {
     }
 
     @Then("^I Verify That The CUI Shows A Welcome Message$")
-    public void iVerifyThatTheCUIShowsAWelcomeMessage() throws InterruptedException {
-        Thread.sleep(5000);
+    public void iVerifyThatTheCUIShowsAWelcomeMessage() {
+         waiting();
         WebElement welcomeMessage = webDriver.findElement(By.xpath("/html/body/div[1]/div[2]/div[1]/div/div/div[1]/div/div[2]/div[1]/p"));
         Assert.assertEquals("Hi there, I'm Charlie and I can help you get to your destination!", welcomeMessage.getText());
         if (!welcomeMessage.getText().equals(WELCOME_MESSAGE)) {
@@ -509,11 +509,7 @@ public class StepDefinitions {
 
     @Then("^I Verify That The CUI Shows The Correct Messages When The Given Building Name Not Exists$")
     public void iVerifyThatTheCUIShowsTheCorrectMessagesWhenTheGivenBuildingNameNotExists() {
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        waiting();
         foundBuildingMessage = webDriver.findElement(By.xpath("/html/body/div[1]/div[2]/div[1]/div/div/div[6]/div/div[2]/div[1]/p"));
         Assert.assertTrue(foundBuildingMessage.getText().contains("I could not find a building with the name"));
         if (!foundBuildingMessage.getText().contains(inputText.substring(0, 1).toUpperCase())) {
@@ -523,11 +519,7 @@ public class StepDefinitions {
 
     @When("^I Click On The Buildings Button To Check The Table With All Buildings$")
     public void iClickOnTheBuildingsButtonToCheckTheTableWithAllBuildings() {
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        waiting();
         buttonToTable = webDriver.findElement(By.xpath("/html/body/div[1]/div[2]/div[1]/div/div/div[7]/div/div[2]/div/a"));
         buttonToTable.click();
 
@@ -637,5 +629,65 @@ public class StepDefinitions {
         if (webDriver.findElement(By.id("inputField")).isEnabled()){
             error=1;
         }
+    }
+
+    @Then("^I Verify That The Inputfield is Enabled$")
+    public void iVerifyThatTheInputfieldIsEnabled() {
+        Assert.assertTrue(webDriver.findElement(By.id("inputField")).isEnabled());
+        if (!webDriver.findElement(By.id("inputField")).isEnabled()){
+            error=1;
+        }
+    }
+
+    @Then("^I Verify That The CUI Shows The Correct Messages When The Given Employee Name Not Exists$")
+    public void iVerifyThatTheCUIShowsTheCorrectMessagesWhenTheGivenEmployeeNameNotExists() {
+        foundEmployeeMessage = webDriver.findElement(By.xpath("/html/body/div[1]/div[2]/div[1]/div/div/div[6]/div/div[2]/div[1]/p"));
+        Assert.assertTrue(foundEmployeeMessage.getText().contains("I could not find an employee"));
+        if (!foundEmployeeMessage.getText().contains("I could not find an employee")) {
+            error = 1;
+        }
+    }
+
+    @When("^I Click On The Employee Button To Check The Table With All Employees$")
+    public void iClickOnTheEmployeeButtonToCheckTheTableWithAllEmployees() {
+        waiting();
+        buttonToTable = webDriver.findElement(By.xpath("/html/body/div[1]/div[2]/div[1]/div/div/div[7]/div/div[2]/div/a"));
+        buttonToTable.click();
+    }
+
+    @Then("^I Verify That The Employees Page Is Opened$")
+    public void iVerifyThatTheEmployeesPageIsOpened() {
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        header = webDriver.findElement(By.id("employeesHeader"));
+    }
+
+    @Then("^I Verify That The CUI Shows The Correct Messages When The Given Company Name Not Exists$")
+    public void iVerifyThatTheCUIShowsTheCorrectMessagesWhenTheGivenCompanyNameNotExists() {
+        foundCompanyMessage = webDriver.findElement(By.xpath("/html/body/div[1]/div[2]/div[1]/div/div/div[6]/div/div[2]/div[1]/p"));
+        Assert.assertTrue(foundCompanyMessage.getText().contains("I could not find a company with the name"));
+        if (!foundCompanyMessage.getText().contains("I could not find a company with the name")) {
+            error = 1;
+        }
+    }
+
+    @When("^I Click On The Company Button To Check The Table With All Companies$")
+    public void iClickOnTheCompanyButtonToCheckTheTableWithAllCompanies() {
+        waiting();
+        buttonToTable = webDriver.findElement(By.xpath("/html/body/div[1]/div[2]/div[1]/div/div/div[7]/div/div[2]/div/a"));
+        buttonToTable.click();
+    }
+
+    @Then("^I Verify That The Companies Page Is Opened$")
+    public void iVerifyThatTheCompaniesPageIsOpened() {
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        header = webDriver.findElement(By.id("companiesHeader"));
     }
 }
