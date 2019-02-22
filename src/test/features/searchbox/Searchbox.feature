@@ -1,9 +1,9 @@
-@Companies
+@searchbox
 
 Feature: Searchbox returns the correct data in the tables when the given name is present in the tables
   This feature verifies that the given name returns the correct data in the tables
 
-  Scenario Outline: Check that given building name in SearchBox returns the correct data in companies table
+  Scenario Outline: Check that given company name in SearchBox returns the correct data in companies table
     Given I launch Chrome browser
     When I Open localhost
     Then I look for the CompaniesButton
@@ -40,4 +40,4 @@ Feature: Searchbox returns the correct data in the tables when the given name is
       |Caglar        |4008    |193    |
       |Caglar        |4008    |203    |
       |Caglar        |4008    |382    |
- # |ida mediafoundry    |4007   |203    |
+

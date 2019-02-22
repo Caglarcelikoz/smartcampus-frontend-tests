@@ -50,6 +50,7 @@ Feature: Testing the inputfield of the CUI
     Examples:
       |testCase|testRun|
       |4858    |382    |
+
   Scenario Outline:  check that the inputfield is enabled if companies button is pressed
     Given I launch Chrome browser
     When I Open localhost

@@ -2,8 +2,6 @@
 Feature: The CUI returns the correct item
   This feature verifies that the CUI returns the correct item
 
-
-
   Scenario Outline: Check that the CUI returns the correct company
     Given I launch Chrome browser
     When I Open localhost

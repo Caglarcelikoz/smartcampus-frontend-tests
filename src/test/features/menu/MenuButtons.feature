@@ -1,4 +1,4 @@
-@Employees
+@menu
 
 Feature: Menu Buttons
   This feature verifies that the Menu Buttons directs the user to the Correct Page

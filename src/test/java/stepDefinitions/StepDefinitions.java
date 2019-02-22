@@ -39,9 +39,11 @@ public class StepDefinitions {
     WebElement finalMessageEmployees;
     WebElement finalMessageCompanies;
     WebElement companyTableName;
+    WebElement employeeTableName;
     WebElement companyTableBuilding;
     WebElement companyTableNameColumn;
     WebElement companyTableBuildingColumn;
+    WebElement employeeTableFirstNameColumn;
     WebElement questionMessage;
     WebElement inputFieldCUI;
     WebElement sendButton;
@@ -81,7 +83,7 @@ public class StepDefinitions {
     // BUILDING
     @Then("I look for the BuildingButton")
     public void i_Look_For_The_BuildingButton() {
-        menuButton = webDriver.findElement(By.xpath("//*[@id=\"navbarMenu\"]/ul/li[3]/a"));
+        menuButton = webDriver.findElement(By.xpath("//*[@id=\"headerItem_Buildings\"]"));
     }
 
     @Then("I Click The BuildingsButton")
@@ -104,7 +106,7 @@ public class StepDefinitions {
     // EMPLOYEES
     @Then("I look for the EmployeesButton")
     public void i_Look_For_The_EmployeesButton() {
-        menuButton = webDriver.findElement(By.xpath("//*[@id=\"navbarMenu\"]/ul/li[2]/a"));
+        menuButton = webDriver.findElement(By.xpath("//*[@id=\"headerItem_Employees\"]"));
     }
 
     @Then("I Click The EmployeesButton")
@@ -126,7 +128,7 @@ public class StepDefinitions {
     // COMPANIES
     @Then("I look for the CompaniesButton")
     public void i_Look_For_The_CompaniesButton() {
-        menuButton = webDriver.findElement(By.xpath("//*[@id=\"navbarMenu\"]/ul/li[1]/a"));
+        menuButton = webDriver.findElement(By.xpath("//*[@id=\"headerItem_Companies\"]"));
     }
 
     @Then("I Click The CompaniesButton")
@@ -690,4 +692,6 @@ public class StepDefinitions {
         }
         header = webDriver.findElement(By.id("companiesHeader"));
     }
+
+
 }
